@@ -38,8 +38,8 @@ export const registerUser = async (req, res, next) => {
 
         res.cookie("token", token, {
             httpOnly: true,
-            secure: process.env.NODE_ENV === "production",
-            sameSite: "strict",
+            secure: true,
+            sameSite: "none",
             maxAge: 24 * 60 * 60 * 1000,
         });
 
@@ -83,9 +83,9 @@ export const loginUser = async (req, res, next) => {
         )
 
         res.cookie("token", token, {
-            httpOnly: true,                // Prevents JavaScript from accessing the cookie (XSS protection)
-            secure: process.env.NODE_ENV === "production", // Only sends over HTTPS in production
-            sameSite: "strict",            // Prevents CSRF (Cross-Site Request Forgery)
+            httpOnly: true,                // Prevents JavaScript from accessing the cookie
+            secure: true, // Only sends over HTTPS in production
+            sameSite: "none",            // Prevents CSRF (Cross-Site Request Forgery)
             maxAge: 24 * 60 * 60 * 1000,   // Expires in 1 day (matching the JWT)
         });
 
@@ -110,8 +110,8 @@ export const logoutUser = async (req, res, next) => {
         res.cookie("token", "", {
             httpOnly: true,
             expires: new Date(0),
-            secure: process.env.NODE_ENV === "production",
-            sameSite: "strict",
+            secure: true,
+            sameSite: "none",
         });
 
         res.status(200).json({

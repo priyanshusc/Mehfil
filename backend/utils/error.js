@@ -35,7 +35,7 @@ export default ErrorHandler;
 
 
 
-
+/* 
 // if i dont use error.js file concept and write menually
 
 export const getUserProfile = async (req, res, next) => {
@@ -73,3 +73,4 @@ export const getUserProfilee = async (req, res, next) => {
         next(err)
     }
 }
+*/
