@@ -35,7 +35,7 @@ const Sidebar = () => {
                     <div className="bg-gradient-to-br from-indigo-700 to-blue-300 p-1 rounded-sm shadow-lg">
                         <Heart size={16} fill="white" className="text-white" />
                     </div>
-                    <span className="font-bold text-gray-300 group-hover:text-white transition-colors ml-4">Liked Songs</span>
+                    <span className="font-bold text-gray-300 group-hover:text-white transition-colors">Liked Songs</span>
                 </Link>
 
                 {user?.role === 'artist' && (

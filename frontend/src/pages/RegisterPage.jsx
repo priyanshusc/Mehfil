@@ -47,14 +47,11 @@ const RegisterPage = () => {
       {/* Right Form Section */}
       <div className="w-full lg:w-1/2 flex items-center justify-center p-8 lg:p-12">
         <form onSubmit={handleRegister} className="w-full max-w-md">
-          <div className="flex justify-start mb-6">
-            <div className="bg-spotify-green w-10 h-10 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(30,215,96,0.2)]">
-              <div className="w-1 h-5 bg-black rotate-[25deg] ml-1"></div>
-              <div className="w-1 h-5 bg-black rotate-[25deg] ml-1"></div>
-            </div>
+          <div className="flex justify-start mb-3">
+            <img className='w-16 h-16' src="logo2.png" alt="" />
           </div>
           <h2 className="text-4xl lg:text-5xl text-white font-black mb-2 tracking-tight">Join the Vibe</h2>
-          <p className="text-sm font-medium text-spotify-green mb-8 tracking-widest uppercase">Create your Spotify account</p>
+          <p className="text-sm font-medium text-spotify-green mb-8 tracking-widest uppercase">Create your Mehfil account</p>
 
           {error && <p className="text-red-400 bg-red-500/10 border border-red-500/20 p-3 rounded-md mb-6 text-sm font-medium">{error}</p>}
 
@@ -64,7 +61,7 @@ const RegisterPage = () => {
               name="username"
               type="text"
               className="w-full p-3 bg-white/5 border border-white/10 rounded-lg outline-none focus:border-spotify-green focus:bg-white/10 transition-all text-white placeholder-gray-500"
-              placeholder="What should we call you?"
+              placeholder="Enter Username"
               required
             />
           </div>
@@ -75,7 +72,7 @@ const RegisterPage = () => {
               name="email"
               type="email"
               className="w-full p-3 bg-white/5 border border-white/10 rounded-lg outline-none focus:border-spotify-green focus:bg-white/10 transition-all text-white placeholder-gray-500"
-              placeholder="name@domain.com"
+              placeholder="Enter Email Address"
               required
             />
           </div>

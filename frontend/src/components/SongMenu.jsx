@@ -5,17 +5,7 @@ import { usePlaylists } from '../context/PlaylistContext';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import api from '../api/api';
 import { toast } from 'sonner';
-import { 
-    useFloating, 
-    autoUpdate, 
-    offset, 
-    flip, 
-    shift, 
-    useDismiss, 
-    useInteractions, 
-    useClick, 
-    useHover, 
-    safePolygon 
+import { useFloating, autoUpdate, offset, flip, shift, useDismiss, useInteractions, useClick, useHover, safePolygon 
 } from '@floating-ui/react';
 
 const SongMenu = ({ song, playlists = [], onAddToPlaylist, onRemoveFromPlaylist, onRemoveLike, context: menuContext }) => {
@@ -42,8 +32,7 @@ const SongMenu = ({ song, playlists = [], onAddToPlaylist, onRemoveFromPlaylist,
             queryClient.invalidateQueries({ queryKey: ['searchSongs'] });
             queryClient.invalidateQueries({ queryKey: ['artistProfile'] });
             queryClient.invalidateQueries({ queryKey: ['authUser'] });
-            
-            // Refresh playlists to accurately reflect the deletion in the sidebar counts
+
             if (refreshPlaylists) {
                 refreshPlaylists();
             }
@@ -67,10 +56,10 @@ const SongMenu = ({ song, playlists = [], onAddToPlaylist, onRemoveFromPlaylist,
     });
 
     // --- Submenu Configuration (The Fix) ---
-    const { 
-        refs: subRefs, 
-        floatingStyles: subStyles, 
-        context: subContext 
+    const {
+        refs: subRefs,
+        floatingStyles: subStyles,
+        context: subContext
     } = useFloating({
         open: isSubOpen,
         onOpenChange: setIsSubOpen,
@@ -137,8 +126,8 @@ const SongMenu = ({ song, playlists = [], onAddToPlaylist, onRemoveFromPlaylist,
 
                     {/* 2. Add to Playlist (With Smart Submenu) */}
                     {menuContext !== 'playlist' && (
-                        <div 
-                            ref={subRefs.setReference} 
+                        <div
+                            ref={subRefs.setReference}
                             {...getSubRefProps()}
                             className={`relative w-full rounded-sm text-sm text-gray-200 flex items-center justify-between transition cursor-default px-3 py-2.5 hover:bg-white/10 ${isSubOpen ? 'bg-white/10' : ''}`}
                         >
@@ -160,11 +149,11 @@ const SongMenu = ({ song, playlists = [], onAddToPlaylist, onRemoveFromPlaylist,
                                     <div className="px-2 py-2">
                                         <div className="bg-white/10 rounded-sm flex items-center px-2 py-1.5 gap-2">
                                             <Search size={14} className="text-gray-400" />
-                                            <input 
+                                            <input
                                                 autoFocus
-                                                type="text" 
-                                                placeholder="Find a playlist" 
-                                                className="bg-transparent border-none text-xs text-white outline-none w-full placeholder:text-gray-400" 
+                                                type="text"
+                                                placeholder="Find a playlist"
+                                                className="bg-transparent border-none text-xs text-white outline-none w-full placeholder:text-gray-400"
                                             />
                                         </div>
                                     </div>

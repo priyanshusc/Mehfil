@@ -76,7 +76,7 @@ const ProfilePage = () => {
                 </div>
             </header>
 
-            <div className="p-8 space-y-12">
+            <div className="p-8 pb-20 space-y-12">
                 {isArtist && (
                     <section>
                         <div className="flex items-center justify-between mb-6">
@@ -121,7 +121,7 @@ const ProfilePage = () => {
                                 <Link
                                     key={playlist._id}
                                     to={`/playlist/${playlist._id}`}
-                                    className="group bg-[#181818] hover:bg-[#282828] p-4 rounded-xl transition-all shadow-md"
+                                    className="group bg-[#181818] hover:bg-[#282828] p-3 rounded-lg transition-all shadow-md"
                                 >
                                     {/* The container is already aspect-square and rounded */}
                                     <div className="aspect-square mb-4 shadow-lg rounded-lg overflow-hidden bg-[#232323]">

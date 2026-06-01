@@ -3,6 +3,7 @@ import { useAuth } from '../context/AuthContext';
 import { Link, useNavigate } from 'react-router-dom';
 import { LogOut, ChevronDown, User, Settings } from 'lucide-react';
 import { toast } from 'sonner';
+// eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Header = () => {
@@ -20,12 +21,8 @@ const Header = () => {
     <header className="py-5 bg-[#070707] border-b border-[#282828] flex items-center justify-between px-6 sticky top-0 z-50">
       {/* 1. Logo Section (Untouched) */}
       <Link to="/" className="text-white hover:text-spotify-green transition-colors font-bold text-2xl flex items-center gap-2">
-        <div className="bg-spotify-green w-8 h-8 rounded-full flex items-center justify-center">
-            <div className="w-1 h-4 bg-black rotate-[25deg] ml-1"></div>
-            <div className="w-1 h-5 bg-black rotate-[25deg] ml-0.5"></div>
-            <div className="w-1 h-4 bg-black rotate-[25deg] ml-0.5"></div>
-        </div>
-        Spotify
+        <img className='w-8 h-8' src="logo2.png" alt="" />
+        Mehfil
       </Link>
       
       <div className="flex items-center gap-4">
