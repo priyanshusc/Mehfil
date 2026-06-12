@@ -38,7 +38,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // 3. Client Routing Catch-All Fallback
 // Ensures React Router takes over when a user reloads a specific page or navigates directly
-app.get("*", (req, res) => {
+app.get(/^(?!\/api).*$/, (req, res) => {
     res.sendFile(path.resolve(__dirname, "public", "index.html"));
 });
 
