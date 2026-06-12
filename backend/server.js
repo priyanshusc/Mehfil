@@ -1,6 +1,9 @@
 import dotenv from "dotenv";
 dotenv.config();
 
+import path from "path";
+import { fileURLToPath } from "url";
+
 import cookieParser from "cookie-parser";
 import express from "express"
 import cors from "cors"
@@ -11,6 +14,8 @@ import playlistRoutes from "./routes/playlist.routes.js"
 import userRoutes from "./routes/user.routes.js"
 import ErrorHandler from "./utils/error.js"
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express()
 
@@ -29,6 +34,13 @@ app.use("/api/music", musicRoutes)
 app.use("/api/playlist", playlistRoutes)
 app.use("/api/user", userRoutes)
 
+app.use(express.static(path.join(__dirname, "public")));
+
+// 3. Client Routing Catch-All Fallback
+// Ensures React Router takes over when a user reloads a specific page or navigates directly
+app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "public", "index.html"));
+});
 
 // server.js Global Error Handler
 app.use((err, req, res, next) => {
@@ -63,6 +75,8 @@ app.use((err, req, res, next) => {
 });
 
 
-app.listen(3000, () => {
-    console.log("server is running on 3000");
-})
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+    console.log(`server is running on port ${PORT}`);
+});
